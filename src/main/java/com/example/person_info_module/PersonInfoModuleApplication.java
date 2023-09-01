@@ -1,4 +1,4 @@
-package com.example.personInfo_module;
+package com.example.person_info_module;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

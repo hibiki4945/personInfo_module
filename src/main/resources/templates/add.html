@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<script src="https://cdn.tailwindcss.com"></script>
+<title>Add Page</title>
+<style type="text/css">
+	label {
+		display: inline-block;
+		width: 200px;
+		margin: 5px;
+		text-align: left;
+	}
+	button {
+		margin: 10px;
+		padding: 10px;
+	}
+	input[type=text] {
+		display: inline-block;
+		width: 200px;
+	}
+</style>
+</head>
+<body class="bg-slate-400">
+	<div align="center">
+		<header class="bg-gray-200">
+		    <span class="text-2xl font-bold mr-48">個人資訊模組</span>
+			<button class="rounded-full text-white bg-blue-600 px-2 m-2 hover:scale-105 active:scale-95 hover:cursor-pointer"><a href="/home">首頁</a></button>
+		</header>
+	    <h1 class="text-3xl font-bold underline">
+	      新增畫面:
+	    </h1>
+		<form action="#" th:action="@{/home}" th:object="${personInfo}" method="post" class="mb-12">
+			<button class="rounded-full text-white bg-green-600 px-2 m-2 hover:scale-105 active:scale-95 hover:cursor-pointer"><a href="/home">送出</a></button>
+			<br/>
+			
+			<div class="flex">
+			
+				<div>基本情報:
+				
+					<label>姓名:</label>
+					<input type="text" th:field="*{name}" /><br/>
+					
+					<label>姓名_平假:</label>
+					<input type="text" th:field="*{nameKatagana}" /><br/>
+					
+					<label>姓名_羅馬:</label>
+					<input type="text" th:field="*{nameRoma}" /><br/>
+					
+					<label>國籍:</label>
+					<input type="text" th:field="*{kokuseki}" /><br/>
+					
+					<label>性別:</label>
+					<input type="text" th:field="*{gender}" /><br/>
+					
+					<label>生日 (yyyy-mm-dd):</label>
+					<input type="text" th:field="*{birthday}" /><br/>
+					
+					<label>年齡:</label>
+					<input type="text" th:field="*{age}" /><br/>
+					
+					<label>就職日 (yyyy-mm-dd):</label>
+					<input type="text" th:field="*{companyIn}" /><br/>
+					
+					<label>離職日 (yyyy-mm-dd):</label>
+					<input type="text" th:field="*{companyOut}" /><br/>
+					
+				</div>
+			
+				<div>聯絡方式:
+					<label>電話:</label>
+					<input type="text" th:field="*{phone}" /><br/>
+					
+					<label>手機:</label>
+					<input type="text" th:field="*{cellPhone}" /><br/>
+					
+					<label>公司信箱:</label>
+					<input type="text" th:field="*{companyEmail}" /><br/>
+					
+					<label>其它信箱:</label>
+					<input type="text" th:field="*{otherEmail}" /><br/>
+					
+					<label>郵箱號碼:</label>
+					<input type="text" th:field="*{postNumber}" /><br/>
+					
+					<label>地址:</label>
+					<input type="text" th:field="*{address}" /><br/>
+					
+				</div>
+				
+				<div>在留情報:
+				
+					<label>護照號碼:</label>
+					<input type="text" th:field="*{passportNumber}" /><br/>
+					
+					<label>護照期限 (yyyy-mm-dd):</label>
+					<input type="text" th:field="*{passportDeadline}" /><br/>
+					
+					<label>在留單_開始日期 (yyyy-mm-dd):</label>
+					<input type="text" th:field="*{stayCardStart}" /><br/>
+					
+					<label>在留單_結束日期 (yyyy-mm-dd):</label>
+					<input type="text" th:field="*{stayCardEnd}" /><br/>
+					
+					<label>在留證明 (0或1):</label>
+					<input type="text" th:field="*{stayQualification}" /><br/>
+					
+				</div>
+			
+				<div>給付情報:
+				
+					<label>保險號碼:</label>
+					<input type="text" th:field="*{securityNumber}" /><br/>
+					
+					<label>年金號碼:</label>
+					<input type="text" th:field="*{yearMoneyNumber}" /><br/>
+					
+					<label>銀行名稱:</label>
+					<input type="text" th:field="*{bankName}" /><br/>
+					
+					<label>分行名稱:</label>
+					<input type="text" th:field="*{branchName}" /><br/>
+					
+					<label>銀行帳號名稱:</label>
+					<input type="text" th:field="*{bankAccountName}" /><br/>
+					
+				</div>
+					
+			</div>
+			
+		</form>
+	    <footer class="py-24 bg-gray-200">
+		 	<p>版權所有© 2023 Github-hibiki4945</p>
+		</footer>
+	</div>
+</body>
+</html>

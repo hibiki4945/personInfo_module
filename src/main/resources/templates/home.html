@@ -1,10 +1,39 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
-<meta charset="BIG5">
-<title>Insert title here</title>
+<meta charset="UTF-8">
+<script src="https://cdn.tailwindcss.com"></script>
+<title>Home Page</title>
 </head>
-<body>
-
+<body class="bg-slate-400">
+	<div align="center">
+		<header class="bg-gray-200">
+		    <span class="text-2xl font-bold mr-48">個人資訊模組</span>
+			<button class="rounded-full text-white bg-blue-600 px-2 m-2 hover:scale-105 active:scale-95 hover:cursor-pointer"><a href="/home">首頁</a></button>
+		</header>
+	    <h1 class="text-3xl font-bold underline">
+	      主頁:
+	    </h1>
+		<form action="#" th:action="@{/home}" th:object="${res}" method="post" class="h-screen">
+			<button class="rounded-full text-white bg-green-600 px-2 m-2 hover:scale-105 active:scale-95 hover:cursor-pointer"><a href="/add">新增情報</a></button>
+			<table>
+				<tr>
+					<td th:text="員工編號" class="border border-2 border-black bg-slate-400"></td>
+					<td th:text="姓名" class="border border-2 border-black"></td>
+					<td th:text="姓名_平假" class="border border-2 border-black"></td>
+					<td th:text="姓名_羅馬" class="border border-2 border-black"></td>
+				</tr>
+				<tr th:each="item : ${res}">
+					<td th:text="${item.myNumber}" class="border border-2 border-black bg-white"></td>
+					<td th:text="${item.name}" class="border border-2 border-black bg-white"></td>
+					<td th:text="${item.nameKatagana}" class="border border-2 border-black bg-white"></td>
+					<td th:text="${item.nameRoma}" class="border border-2 border-black bg-white"></td>
+				</tr>
+			</table>
+		</form>
+	    <footer class="py-24 bg-gray-200">
+		 	<p>版權所有© 2023 Github-hibiki4945</p>
+		</footer>
+	</div>
 </body>
 </html>

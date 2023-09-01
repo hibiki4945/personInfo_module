@@ -48,5 +48,55 @@ public class MainController {
         }
         return "add_done";
     }
+
+    @GetMapping("/update_select")
+    public String changeSelect(Model model) {
+        PersonInfo personInfo = new PersonInfo();
+        model.addAttribute("personInfo", personInfo);
+        model.addAttribute("error", "");
+        return "update_select";
+    }
+    
+    private int selectInfoNum; 
+    
+    @PostMapping("/update_select")
+    public String updateSelect(@ModelAttribute("personInfo") PersonInfo personInfo, Model model) {
+        System.out.println(personInfo);
+        selectInfoNum = personInfo.getMyNumber();
+        PersonInfoResponse res = personInfoService.selectInfo(personInfo.getMyNumber());
+        for (PersonInfo item : res.getPersonInfoList()) {
+            personInfo = item;    
+        }
+        System.out.println(personInfo);
+        model.addAttribute("personInfo", personInfo);
+        if(res.getCode() != "200") {
+            model.addAttribute("error", res.getMessage());
+            return "update_select";
+        }
+        return "update";
+    }
+
+    @GetMapping("/update")
+    public String update(Model model) {
+//        PersonInfo personInfo = new PersonInfo();
+//        model.addAttribute("personInfo", personInfo);
+        model.addAttribute("error", "");
+        return "update";
+    }
+    
+    @PostMapping("/update")
+    public String change(@ModelAttribute("personInfo") PersonInfo personInfo, Model model) {
+        System.out.println(personInfo);
+        personInfo.setMyNumber(selectInfoNum);
+        System.out.println(personInfo);
+//        List<PersonInfo> personInfoList = new ArrayList<PersonInfo>(Arrays.asList(personInfo));
+        PersonInfoResponse res = personInfoService.changeInfo(personInfo);
+        if(res.getCode() != "200") {
+            model.addAttribute("error", res.getMessage());
+            return "update";
+        }
+        return "update_done";
+    }
+
     
 }

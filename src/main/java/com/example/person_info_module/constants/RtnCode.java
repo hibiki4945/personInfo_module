@@ -4,6 +4,7 @@ public enum RtnCode {
 
     SUCCESSFUL("200", "successful!"),
     DATA_ERROR("400", "data error!"),
+    DATA_NO_FOUND_ERROR("400", "data no found error!"),
     NAME_BLANK_ERROR("400", "name blank error!"),
     NAME_KATAGANA_BLANK_ERROR("400", "name_katagana blank error!"),
     NAME_ROMA_BLANK_ERROR("400", "name_roma blank error!"),

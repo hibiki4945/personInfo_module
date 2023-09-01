@@ -8,6 +8,8 @@ public interface PersonInfoService {
     public PersonInfoResponse addInfo(PersonInfo personInfo);
     
     public PersonInfoResponse changeInfo(PersonInfo personInfo);
+    
+    public PersonInfoResponse selectInfo(int myNumber);
 
     public PersonInfoResponse searchInfo(int myNumber);
 

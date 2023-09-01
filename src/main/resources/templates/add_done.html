@@ -15,10 +15,14 @@
 </head>
 <body class="bg-slate-400">
 	<div align="center">
-		<header class="bg-green-200">
-		    <span class="text-2xl font-bold mr-48">個人資訊模組</span>
-			<button class="rounded-full text-white bg-blue-600 px-2 m-2 hover:scale-105 active:scale-95 hover:cursor-pointer relative"><i class="fa-solid fa-rotate-left"><a class="absolute w-full h-full left-0 top-0" href="/add"></a></i></button>
-			<button class="rounded-full text-white bg-blue-600 px-2 m-2 hover:scale-105 active:scale-95 hover:cursor-pointer relative"><i class="fa-solid fa-house"><a class="absolute w-full h-full left-0 top-0" href="/home"></a></i></button>
+		<header class="bg-green-200 relative py-6">
+		    <span class="text-2xl font-bold absolute top-2 left-2">個人資訊模組</span>
+		    <div class="absolute top-1 right-1">
+		    	<button class="rounded-full text-white bg-blue-600 px-2 m-2 hover:scale-105 active:scale-95 hover:cursor-pointer relative"><i class="fa-solid fa-user-plus"><a class="absolute w-full h-full left-0 top-0" href="/add"></a></i></button>
+		    	<button class="rounded-full text-white bg-blue-600 px-2 m-2 hover:scale-105 active:scale-95 hover:cursor-pointer relative"><i class="fa-solid fa-pen-to-square"><a class="absolute w-full h-full left-0 top-0" href="/home"></a></i></button>
+		    	<button class="rounded-full text-white bg-blue-600 px-2 m-2 hover:scale-105 active:scale-95 hover:cursor-pointer relative"><i class="fa-solid fa-trash-can"><a class="absolute w-full h-full left-0 top-0" href="/home"></a></i></button>
+		    	<button class="rounded-full text-white bg-blue-600 px-2 m-2 hover:scale-105 active:scale-95 hover:cursor-pointer relative"><i class="fa-solid fa-house"><a class="absolute w-full h-full left-0 top-0" href="/home"></a></i></button>
+	    	</div>
 		</header>
 	    <h1>Add Successed!</h1>
 		<form action="#" th:action="@{/add}" th:object="${personInfo}" class="mb-10">

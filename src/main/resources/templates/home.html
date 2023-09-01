@@ -8,15 +8,15 @@
 </head>
 <body class="bg-slate-400">
 	<div align="center">
-		<header class="bg-gray-200">
+		<header class="bg-green-200">
 		    <span class="text-2xl font-bold mr-48">個人資訊模組</span>
-			<button class="rounded-full text-white bg-blue-600 px-2 m-2 hover:scale-105 active:scale-95 hover:cursor-pointer relative"><i class="fa-solid fa-house"><a class="absolute w-full h-full left-0 top-0" href="/home"></a></i></button>
+			<button class="rounded-full text-white bg-blue-600 px-2 m-2 hover:scale-105 active:scale-95 hover:cursor-pointer relative"><i class="fa-solid fa-user-plus"></i><a class="absolute w-full h-full left-0 top-0" href="/add"></a></i></button>
+	    	<button class="rounded-full text-white bg-blue-600 px-2 m-2 hover:scale-105 active:scale-95 hover:cursor-pointer relative"><i class="fa-solid fa-house"><a class="absolute w-full h-full left-0 top-0" href="/home"></a></i></button>
 	    </header>
 	    <h1 class="text-3xl font-bold underline">
 	      主頁:
 	    </h1>
 		<form action="#" th:action="@{/home}" th:object="${res}" method="post" class="h-screen">
-			<button class="rounded-full text-white bg-green-600 px-2 m-2 hover:scale-105 active:scale-95 hover:cursor-pointer"><a href="/add">新增情報</a></button>
 			<table>
 				<tr>
 					<td th:text="員工編號" class="border border-2 border-black bg-slate-400"></td>
@@ -32,7 +32,7 @@
 				</tr>
 			</table>
 		</form>
-	    <footer class="py-24 bg-gray-200">
+	    <footer class="py-24 bg-green-200">
 		 	<p>版權所有© 2023 Github-hibiki4945</p>
 		</footer>
 	</div>

@@ -4,8 +4,68 @@
 <meta charset="UTF-8">
 <script src="https://cdn.tailwindcss.com"></script>
 <title>Add Done Page</title>
+<style type="text/css">
+	span {
+		display: inline-block;
+		width: 200px;
+		text-align: left;
+	}
+</style>
 </head>
 <body class="bg-slate-400">
-	<h1>done!</h1>
+	<div align="center">
+		<header class="bg-gray-200">
+		    <span class="text-2xl font-bold mr-48">個人資訊模組</span>
+			<button class="rounded-full text-white bg-blue-600 px-2 m-2 hover:scale-105 active:scale-95 hover:cursor-pointer"><a href="/home">首頁</a></button>
+		</header>
+	    <h1>Add Successed!</h1>
+		<form action="#" th:action="@{/add}" th:object="${personInfo}" class="h-screen">
+			
+			<div class="flex justify-between">
+			
+				<div>基本情報:
+					<div class="justify-between content-between text-center bg-lime-600 m-2 border border-2 border-lime-900 rounded-lg"><label class="text-white">姓名:</label><hr class="border border-1 border-lime-800"><label class="text-white" th:text="*{name}"></label><br></div>
+					<div><label>姓名_平假:</label><br><span th:text="*{nameKatagana}"></span><br></div>
+					<div><label>姓名_羅馬:</label><br><span th:text="*{nameRoma}"></span><br></div>
+					<div><label>國籍:</label><br><span th:text="*{kokuseki}"></span><br></div>
+					<div><label>性別:</label><br><span th:text="*{gender}"></span><br></div>
+					<div><label>生日 (yyyy-mm-dd):</label><br><span th:text="*{birthday}"></span><br></div>
+					<div><label>年齡:</label><br><span th:text="*{age}"></span><br></div>
+					<div><label>就職日 (yyyy-mm-dd):</label><br><span th:text="*{companyIn}"></span><br></div>
+					<div><label>離職日 (yyyy-mm-dd):</label><br><span th:text="*{companyOut}"></span><br></div>
+				</div>
+			
+				<div>聯絡方式:
+					<div><label>電話:</label><br><span th:text="*{phone}"></span><br></div>
+					<div><label>手機:</label><br><span th:text="*{cellPhone}"></span><br></div>
+					<div><label>公司信箱:</label><br><span th:text="*{companyEmail}"></span><br></div>
+					<div><label>其它信箱:</label><br><span th:text="*{otherEmail}"></span><br></div>
+					<div><label>郵箱號碼:</label><br><span th:text="*{postNumber}"></span><br></div>
+					<div><label>地址:</label><br><span th:text="*{address}"></span><br></div>
+				</div>
+				
+				<div>在留情報:
+					<div><label>護照號碼:</label><br><span th:text="*{passportNumber}"></span><br></div>
+					<div><label>護照期限 (yyyy-mm-dd):</label><br><span th:text="*{passportDeadline}"></span><br></div>
+					<div><label>在留單_號碼:</label><br><span th:text="*{stayCardNumber}"></span><br></div>
+					<div><label>在留單_開始日期 (yyyy-mm-dd):</label><br><span th:text="*{stayCardStart}"></span><br></div>
+					<div><label>在留單_結束日期 (yyyy-mm-dd):</label><br><span th:text="*{stayCardEnd}"></span><br></div>
+					<div><label>在留證明 (0或1):</label><br><span th:text="*{stayQualification}"></span><br></div>
+				</div>
+			
+				<div>給付情報:
+					<div><label>保險號碼:</label><br><span th:text="*{securityNumber}"></span><br></div>
+					<div><label>年金號碼:</label><br><span th:text="*{yearMoneyNumber}"></span><br></div>
+					<div><label>銀行名稱:</label><br><span th:text="*{bankName}"></span><br></div>
+					<div><label>分行名稱:</label><br><span th:text="*{branchName}"></span><br></div>
+					<div><label>銀行帳號名稱:</label><br><span th:text="*{bankAccountName}"></span><br></div>
+				</div>
+					
+			</div>
+		</form>
+	</div>
+	<footer class="py-24 bg-gray-200">
+	  <p>版權所有© 2023 Github-hibiki4945</p>
+	</footer>
 </body>
 </html>

@@ -30,10 +30,13 @@
 	    <h1 class="text-3xl font-bold underline">
 	      新增畫面:
 	    </h1>
-		<form action="#" th:action="@{/home}" th:object="${personInfo}" method="post" class="mb-12">
-			<button class="rounded-full text-white bg-green-600 px-2 m-2 hover:scale-105 active:scale-95 hover:cursor-pointer"><a href="/home">送出</a></button>
+		<form action="#" th:action="@{/add}" th:object="${personInfo}" method="post" class="mb-12">
+			<button type="submit" class="rounded-full text-white bg-green-600 px-2 m-2 hover:scale-105 active:scale-95 hover:cursor-pointer">提交</button>
 			<br/>
-			
+			<div th:object="${error}" >
+			  <span th:text="${error}" class="text-red-900"></span>
+	        </div>
+         
 			<div class="flex">
 			
 				<div>基本情報:
@@ -95,6 +98,9 @@
 					
 					<label>護照期限 (yyyy-mm-dd):</label>
 					<input type="text" th:field="*{passportDeadline}" /><br/>
+					
+					<label>在留單_號碼:</label>
+					<input type="text" th:field="*{stayCardNumber}" /><br/>
 					
 					<label>在留單_開始日期 (yyyy-mm-dd):</label>
 					<input type="text" th:field="*{stayCardStart}" /><br/>

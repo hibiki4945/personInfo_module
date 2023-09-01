@@ -35,15 +35,18 @@ public class MainController {
     }
     
     @PostMapping("/add")
-    public String add_done(@ModelAttribute("personInfo") PersonInfo personInfo, Model model) {
+    public String addDone(@ModelAttribute("personInfo") PersonInfo personInfo, Model model) {
+//        ?
+        System.out.println("123");
         System.out.println(personInfo);
 //        List<PersonInfo> personInfoList = new ArrayList<PersonInfo>(Arrays.asList(personInfo));
         PersonInfoResponse res = personInfoService.addInfo(personInfo);
         if(res.getCode() != "200") {
+            System.out.println(res.getMessage());
             model.addAttribute("error", res.getMessage());
-            return "add_done";
+            return "add";
         }
-        return "edit_done";
+        return "add_done";
     }
     
 }

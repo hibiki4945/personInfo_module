@@ -98,5 +98,23 @@ public class MainController {
         return "update_done";
     }
 
+    @GetMapping("/delete_select")
+    public String delete(Model model) {
+        PersonInfo personInfo = new PersonInfo();
+        model.addAttribute("personInfo", personInfo);
+        model.addAttribute("error", "");
+        return "delete_select";
+    }
+    
+    @PostMapping("/delete_select")
+    public String delete(@ModelAttribute("personInfo") PersonInfo personInfo, Model model) {
+        System.out.println(personInfo);
+        PersonInfoResponse res = personInfoService.deleteInfo(personInfo.getMyNumber());
+        if(res.getCode() != "200") {
+            model.addAttribute("error", res.getMessage());
+            return "delete_select";
+        }
+        return "delete_done";
+    }
     
 }

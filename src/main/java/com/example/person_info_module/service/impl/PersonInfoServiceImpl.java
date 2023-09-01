@@ -274,7 +274,16 @@ public class PersonInfoServiceImpl implements PersonInfoService{
     @Override
     public PersonInfoResponse deleteInfo(int myNumber) {
         // TODO Auto-generated method stub
-        return null;
+        List<PersonInfo> personInfoList = new ArrayList<PersonInfo>();
+//      check : not existById()
+        if(!personInfoDao.existsById(myNumber)) {
+            return new PersonInfoResponse(RtnCode.DATA_NO_FOUND_ERROR.getCode(), RtnCode.DATA_NO_FOUND_ERROR.getMessage(), personInfoList);   
+        }
+        
+        personInfoDao.deleteById(myNumber);
+        
+        return new PersonInfoResponse(RtnCode.SUCCESSFUL.getCode(), RtnCode.SUCCESSFUL.getMessage(), personInfoList);    
+
     }
 
 

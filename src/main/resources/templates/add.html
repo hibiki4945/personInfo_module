@@ -4,20 +4,14 @@
 <meta charset="UTF-8">
 <script src="https://cdn.tailwindcss.com"></script>
 <title>Add Page</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 <style type="text/css">
-	label {
-		display: inline-block;
-		width: 200px;
-		margin: 5px;
-		text-align: left;
-	}
 	button {
 		margin: 10px;
 		padding: 10px;
 	}
 	input[type=text] {
 		display: inline-block;
-		width: 200px;
 	}
 </style>
 </head>
@@ -25,115 +19,240 @@
 	<div align="center">
 		<header class="bg-gray-200">
 		    <span class="text-2xl font-bold mr-48">個人資訊模組</span>
-			<button class="rounded-full text-white bg-blue-600 px-2 m-2 hover:scale-105 active:scale-95 hover:cursor-pointer"><a href="/home">首頁</a></button>
+			<button class="rounded-full text-white bg-blue-600 px-2 m-2 hover:scale-105 active:scale-95 hover:cursor-pointer relative"><i class="fa-solid fa-house"><a class="absolute w-full h-full left-0 top-0" href="/home"></a></i></button>
 		</header>
 	    <h1 class="text-3xl font-bold underline">
 	      新增畫面:
 	    </h1>
 		<form action="#" th:action="@{/add}" th:object="${personInfo}" method="post" class="mb-12">
-			<button type="submit" class="rounded-full text-white bg-green-600 px-2 m-2 hover:scale-105 active:scale-95 hover:cursor-pointer">提交</button>
-			<br/>
 			<div th:object="${error}" >
 			  <span th:text="${error}" class="text-red-900"></span>
 	        </div>
          
-			<div class="flex">
+         	<div class="flex justify-around">
 			
 				<div>基本情報:
-				
-					<label>姓名:</label>
-					<input type="text" th:field="*{name}" /><br/>
-					
-					<label>姓名_平假:</label>
-					<input type="text" th:field="*{nameKatagana}" /><br/>
-					
-					<label>姓名_羅馬:</label>
-					<input type="text" th:field="*{nameRoma}" /><br/>
-					
-					<label>國籍:</label>
-					<input type="text" th:field="*{kokuseki}" /><br/>
-					
-					<label>性別:</label>
-					<input type="text" th:field="*{gender}" /><br/>
-					
-					<label>生日 (yyyy-mm-dd):</label>
-					<input type="text" th:field="*{birthday}" /><br/>
-					
-					<label>年齡:</label>
-					<input type="text" th:field="*{age}" /><br/>
-					
-					<label>就職日 (yyyy-mm-dd):</label>
-					<input type="text" th:field="*{companyIn}" /><br/>
-					
-					<label>離職日 (yyyy-mm-dd):</label>
-					<input type="text" th:field="*{companyOut}" /><br/>
-					
+					<div class="shadow-inner shadow-black m-1">
+						<div class="w-48 h-8 text-center bg-lime-600 m-2 mb-0 border border-2 border-lime-900 rounded-t-lg">
+							<label class="text-white">姓名:</label>
+						</div>
+						<div class="w-48 h-8 text-center mt-0 border border-2 border-lime-900 rounded-b-lg relative">
+							<input class="w-full h-full rounded-b-lg text-center" type="text" th:field="*{name}" /><br/>
+						</div>
+					</div>
+					<div class="shadow-inner shadow-black m-1">
+						<div class="w-48 h-8 text-center bg-lime-600 m-2 mb-0 border border-2 border-lime-900 rounded-t-lg">
+							<label class="text-white">姓名_平假:</label>
+						</div>
+						<div class="w-48 h-8 text-center mt-0 border border-2 border-lime-900 rounded-b-lg relative">
+							<input class="w-full h-full rounded-b-lg text-center" type="text" th:field="*{nameKatagana}" /><br/>
+						</div>
+					</div>
+					<div class="shadow-inner shadow-black m-1">
+						<div class="w-48 h-8 text-center bg-lime-600 m-2 mb-0 border border-2 border-lime-900 rounded-t-lg">
+							<label class="text-white">姓名_羅馬:</label>
+						</div>
+						<div class="w-48 h-8 text-center mt-0 border border-2 border-lime-900 rounded-b-lg relative">
+							<input class="w-full h-full rounded-b-lg text-center" type="text" th:field="*{nameRoma}" /><br/>
+						</div>
+					</div>
+					<div class="shadow-inner shadow-black m-1">
+						<div class="w-48 h-8 text-center bg-lime-600 m-2 mb-0 border border-2 border-lime-900 rounded-t-lg">
+							<label class="text-white">國籍:</label>
+						</div>
+						<div class="w-48 h-8 text-center mt-0 border border-2 border-lime-900 rounded-b-lg relative">
+							<input class="w-full h-full rounded-b-lg text-center" type="text" th:field="*{kokuseki}" /><br/>
+						</div>
+					</div>
+					<div class="shadow-inner shadow-black m-1">
+						<div class="w-48 h-8 text-center bg-lime-600 m-2 mb-0 border border-2 border-lime-900 rounded-t-lg">
+							<label class="text-white">性別:</label>
+						</div>
+						<div class="w-48 h-8 text-center mt-0 border border-2 border-lime-900 rounded-b-lg relative">
+							<input class="w-full h-full rounded-b-lg text-center" type="text" th:field="*{gender}" /><br/>
+						</div>
+					</div>
+					<div class="shadow-inner shadow-black m-1">
+						<div class="w-48 h-8 text-center bg-lime-600 m-2 mb-0 border border-2 border-lime-900 rounded-t-lg">
+							<label class="text-white">生日 (yyyy-mm-dd):</label>
+						</div>
+						<div class="w-48 h-8 text-center mt-0 border border-2 border-lime-900 rounded-b-lg relative">
+							<input class="w-full h-full rounded-b-lg text-center" type="text" th:field="*{birthday}" /><br/>
+						</div>
+					</div>
+					<div class="shadow-inner shadow-black m-1">
+						<div class="w-48 h-8 text-center bg-lime-600 m-2 mb-0 border border-2 border-lime-900 rounded-t-lg">
+							<label class="text-white">年齡:</label>
+						</div>
+						<div class="w-48 h-8 text-center mt-0 border border-2 border-lime-900 rounded-b-lg relative">
+							<input class="w-full h-full rounded-b-lg text-center" type="text" th:field="*{age}" /><br/>
+						</div>
+					</div>
+					<div class="shadow-inner shadow-black m-1">
+						<div class="w-48 h-8 text-center bg-lime-600 m-2 mb-0 border border-2 border-lime-900 rounded-t-lg">
+							<label class="text-white">就職日 (yyyy-mm-dd):</label>
+						</div>
+						<div class="w-48 h-8 text-center mt-0 border border-2 border-lime-900 rounded-b-lg relative">
+							<input class="w-full h-full rounded-b-lg text-center" type="text" th:field="*{companyIn}" /><br/>
+						</div>
+					</div>
+					<div class="shadow-inner shadow-black m-1">
+						<div class="w-48 h-8 text-center bg-lime-600 m-2 mb-0 border border-2 border-lime-900 rounded-t-lg">
+							<label class="text-white">離職日 (yyyy-mm-dd):</label>
+						</div>
+						<div class="w-48 h-8 text-center mt-0 border border-2 border-lime-900 rounded-b-lg relative">
+							<input class="w-full h-full rounded-b-lg text-center" type="text" th:field="*{companyOut}" /><br/>
+						</div>
+					</div>
 				</div>
 			
 				<div>聯絡方式:
-					<label>電話:</label>
-					<input type="text" th:field="*{phone}" /><br/>
-					
-					<label>手機:</label>
-					<input type="text" th:field="*{cellPhone}" /><br/>
-					
-					<label>公司信箱:</label>
-					<input type="text" th:field="*{companyEmail}" /><br/>
-					
-					<label>其它信箱:</label>
-					<input type="text" th:field="*{otherEmail}" /><br/>
-					
-					<label>郵箱號碼:</label>
-					<input type="text" th:field="*{postNumber}" /><br/>
-					
-					<label>地址:</label>
-					<input type="text" th:field="*{address}" /><br/>
-					
+					<div class="shadow-inner shadow-black m-1">
+						<div class="w-48 h-8 text-center bg-lime-600 m-2 mb-0 border border-2 border-lime-900 rounded-t-lg">
+							<label class="text-white">電話:</label>
+						</div>
+						<div class="w-48 h-8 text-center mt-0 border border-2 border-lime-900 rounded-b-lg relative">
+							<input class="w-full h-full rounded-b-lg text-center" type="text" th:field="*{phone}" /><br/>
+						</div>
+					</div>
+					<div class="shadow-inner shadow-black m-1">
+						<div class="w-48 h-8 text-center bg-lime-600 m-2 mb-0 border border-2 border-lime-900 rounded-t-lg">
+							<label class="text-white">手機:</label>
+						</div>
+						<div class="w-48 h-8 text-center mt-0 border border-2 border-lime-900 rounded-b-lg relative">
+							<input class="w-full h-full rounded-b-lg text-center" type="text" th:field="*{cellPhone}" /><br/>
+						</div>
+					</div>
+					<div class="shadow-inner shadow-black m-1">
+						<div class="w-48 h-8 text-center bg-lime-600 m-2 mb-0 border border-2 border-lime-900 rounded-t-lg">
+							<label class="text-white">公司信箱:</label>
+						</div>
+						<div class="w-48 h-8 text-center mt-0 border border-2 border-lime-900 rounded-b-lg relative">
+							<input class="w-full h-full rounded-b-lg text-center" type="text" th:field="*{companyEmail}" /><br/>
+						</div>
+					</div>
+					<div class="shadow-inner shadow-black m-1">
+						<div class="w-48 h-8 text-center bg-lime-600 m-2 mb-0 border border-2 border-lime-900 rounded-t-lg">
+							<label class="text-white">其它信箱:</label>
+						</div>
+						<div class="w-48 h-8 text-center mt-0 border border-2 border-lime-900 rounded-b-lg relative">
+							<input class="w-full h-full rounded-b-lg text-center" type="text" th:field="*{otherEmail}" /><br/>
+						</div>
+					</div>
+					<div class="shadow-inner shadow-black m-1">
+						<div class="w-48 h-8 text-center bg-lime-600 m-2 mb-0 border border-2 border-lime-900 rounded-t-lg">
+							<label class="text-white">郵箱號碼:</label>
+						</div>
+						<div class="w-48 h-8 text-center mt-0 border border-2 border-lime-900 rounded-b-lg relative">
+							<input class="w-full h-full rounded-b-lg text-center" type="text" th:field="*{postNumber}" /><br/>
+						</div>
+					</div>
+					<div class="shadow-inner shadow-black m-1">
+						<div class="w-48 h-8 text-center bg-lime-600 m-2 mb-0 border border-2 border-lime-900 rounded-t-lg">
+							<label class="text-white">地址:</label>
+						</div>
+						<div class="w-48 h-8 text-center mt-0 border border-2 border-lime-900 rounded-b-lg relative">
+							<input class="w-full h-full rounded-b-lg text-center" type="text" th:field="*{address}" /><br/>
+						</div>
+					</div>
 				</div>
 				
 				<div>在留情報:
-				
-					<label>護照號碼:</label>
-					<input type="text" th:field="*{passportNumber}" /><br/>
-					
-					<label>護照期限 (yyyy-mm-dd):</label>
-					<input type="text" th:field="*{passportDeadline}" /><br/>
-					
-					<label>在留單_號碼:</label>
-					<input type="text" th:field="*{stayCardNumber}" /><br/>
-					
-					<label>在留單_開始日期 (yyyy-mm-dd):</label>
-					<input type="text" th:field="*{stayCardStart}" /><br/>
-					
-					<label>在留單_結束日期 (yyyy-mm-dd):</label>
-					<input type="text" th:field="*{stayCardEnd}" /><br/>
-					
-					<label>在留證明 (0或1):</label>
-					<input type="text" th:field="*{stayQualification}" /><br/>
-					
+					<div class="shadow-inner shadow-black m-1">
+						<div class="w-60 h-8 text-center bg-lime-600 m-2 mb-0 border border-2 border-lime-900 rounded-t-lg">
+							<label class="text-white">護照號碼:</label>
+						</div>
+						<div class="w-60 h-8 text-center mt-0 border border-2 border-lime-900 rounded-b-lg relative">
+							<input class="w-full h-full rounded-b-lg text-center" type="text" th:field="*{passportNumber}" /><br/>
+						</div>
+					</div>
+					<div class="shadow-inner shadow-black m-1">
+						<div class="w-60 h-8 text-center bg-lime-600 m-2 mb-0 border border-2 border-lime-900 rounded-t-lg">
+							<label class="text-white">護照期限 (yyyy-mm-dd):</label>
+						</div>
+						<div class="w-60 h-8 text-center mt-0 border border-2 border-lime-900 rounded-b-lg relative">
+							<input class="w-full h-full rounded-b-lg text-center" type="text" th:field="*{passportDeadline}" /><br/>
+						</div>
+					</div>
+					<div class="shadow-inner shadow-black m-1">
+						<div class="w-60 h-8 text-center bg-lime-600 m-2 mb-0 border border-2 border-lime-900 rounded-t-lg">
+							<label class="text-white">在留單_號碼:</label>
+						</div>
+						<div class="w-60 h-8 text-center mt-0 border border-2 border-lime-900 rounded-b-lg relative">
+							<input class="w-full h-full rounded-b-lg text-center" type="text" th:field="*{stayCardNumber}" /><br/>
+						</div>
+					</div>
+					<div class="shadow-inner shadow-black m-1">
+						<div class="w-60 h-8 text-center bg-lime-600 m-2 mb-0 border border-2 border-lime-900 rounded-t-lg">
+							<label class="text-white">在留單_開始日期 (yyyy-mm-dd):</label>
+						</div>
+						<div class="w-60 h-8 text-center mt-0 border border-2 border-lime-900 rounded-b-lg relative">
+							<input class="w-full h-full rounded-b-lg text-center" type="text" th:field="*{stayCardStart}" /><br/>
+						</div>
+					</div>
+					<div class="shadow-inner shadow-black m-1">
+						<div class="w-60 h-8 text-center bg-lime-600 m-2 mb-0 border border-2 border-lime-900 rounded-t-lg">
+							<label class="text-white">在留單_結束日期 (yyyy-mm-dd):</label>
+						</div>
+						<div class="w-60 h-8 text-center mt-0 border border-2 border-lime-900 rounded-b-lg relative">
+							<input class="w-full h-full rounded-b-lg text-center" type="text" th:field="*{stayCardEnd}" /><br/>
+						</div>
+					</div>
+					<div class="shadow-inner shadow-black m-1">
+						<div class="w-60 h-8 text-center bg-lime-600 m-2 mb-0 border border-2 border-lime-900 rounded-t-lg">
+							<label class="text-white">在留證明 (0或1):</label>
+						</div>
+						<div class="w-60 h-8 text-center mt-0 border border-2 border-lime-900 rounded-b-lg relative">
+							<input class="w-full h-full rounded-b-lg text-center" type="text" th:field="*{stayQualification}" /><br/>
+						</div>
+					</div>
 				</div>
 			
 				<div>給付情報:
-				
-					<label>保險號碼:</label>
-					<input type="text" th:field="*{securityNumber}" /><br/>
-					
-					<label>年金號碼:</label>
-					<input type="text" th:field="*{yearMoneyNumber}" /><br/>
-					
-					<label>銀行名稱:</label>
-					<input type="text" th:field="*{bankName}" /><br/>
-					
-					<label>分行名稱:</label>
-					<input type="text" th:field="*{branchName}" /><br/>
-					
-					<label>銀行帳號名稱:</label>
-					<input type="text" th:field="*{bankAccountName}" /><br/>
-					
+					<div class="shadow-inner shadow-black m-1">
+						<div class="w-48 h-8 text-center bg-lime-600 m-2 mb-0 border border-2 border-lime-900 rounded-t-lg">
+							<label class="text-white">保險號碼:</label>
+						</div>
+						<div class="w-48 h-8 text-center mt-0 border border-2 border-lime-900 rounded-b-lg relative">
+							<input class="w-full h-full rounded-b-lg text-center" type="text" th:field="*{securityNumber}" /><br/>
+						</div>
+					</div>
+					<div class="shadow-inner shadow-black m-1">
+						<div class="w-48 h-8 text-center bg-lime-600 m-2 mb-0 border border-2 border-lime-900 rounded-t-lg">
+							<label class="text-white">年金號碼:</label>
+						</div>
+						<div class="w-48 h-8 text-center mt-0 border border-2 border-lime-900 rounded-b-lg relative">
+							<input class="w-full h-full rounded-b-lg text-center" type="text" th:field="*{yearMoneyNumber}" /><br/>
+						</div>
+					</div>
+					<div class="shadow-inner shadow-black m-1">
+						<div class="w-48 h-8 text-center bg-lime-600 m-2 mb-0 border border-2 border-lime-900 rounded-t-lg">
+							<label class="text-white">銀行名稱:</label>
+						</div>
+						<div class="w-48 h-8 text-center mt-0 border border-2 border-lime-900 rounded-b-lg relative">
+							<input class="w-full h-full rounded-b-lg text-center" type="text" th:field="*{bankName}" /><br/>
+						</div>
+					</div>
+					<div class="shadow-inner shadow-black m-1">
+						<div class="w-48 h-8 text-center bg-lime-600 m-2 mb-0 border border-2 border-lime-900 rounded-t-lg">
+							<label class="text-white">分行名稱:</label>
+						</div>
+						<div class="w-48 h-8 text-center mt-0 border border-2 border-lime-900 rounded-b-lg relative">
+							<input class="w-full h-full rounded-b-lg text-center" type="text" th:field="*{branchName}" /><br/>
+						</div>
+					</div>
+					<div class="shadow-inner shadow-black m-1">
+						<div class="w-48 h-8 text-center bg-lime-600 m-2 mb-0 border border-2 border-lime-900 rounded-t-lg">
+							<label class="text-white">銀行帳號名稱:</label>
+						</div>
+						<div class="w-48 h-8 text-center mt-0 border border-2 border-lime-900 rounded-b-lg relative">
+							<input class="w-full h-full rounded-b-lg text-center" type="text" th:field="*{bankAccountName}" /><br/>
+						</div>
+					</div>
 				</div>
 					
 			</div>
-			
+			<button type="submit" class="rounded-full text-white bg-green-600 px-2 m-2 hover:scale-105 active:scale-95 hover:cursor-pointer">提交</button>
 		</form>
 	    <footer class="py-24 bg-gray-200">
 		 	<p>版權所有© 2023 Github-hibiki4945</p>

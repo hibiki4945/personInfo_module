@@ -24,7 +24,12 @@
 			<div class="flex justify-between">
 			
 				<div>基本情報:
-					<div class="justify-between content-between text-center bg-lime-600 m-2 border border-2 border-lime-900 rounded-lg"><label class="text-white">姓名:</label><hr class="border border-1 border-lime-800"><label class="text-white" th:text="*{name}"></label><br></div>
+					<div class="w-48 h-8 text-center bg-lime-600 m-2 mb-0 border border-2 border-lime-900 rounded-lg">
+						<label class="text-white">姓名:</label>
+					</div>
+					<div class="w-48 h-8 text-center bg-lime-600 m-2 border border-2 border-lime-700 rounded-lg">
+						<label class="text-white" th:text="*{name}"></label>
+					</div>
 					<div><label>姓名_平假:</label><br><span th:text="*{nameKatagana}"></span><br></div>
 					<div><label>姓名_羅馬:</label><br><span th:text="*{nameRoma}"></span><br></div>
 					<div><label>國籍:</label><br><span th:text="*{kokuseki}"></span><br></div>

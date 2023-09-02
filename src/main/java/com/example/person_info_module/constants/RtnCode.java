@@ -4,6 +4,7 @@ public enum RtnCode {
 
     SUCCESSFUL("200", "successful!"),
     DATA_ERROR("400", "data error!"),
+    DAO_METHOD_ERROR("400", "dao method error!"),
     DATA_NO_FOUND_ERROR("400", "data no found error!"),
     NAME_BLANK_ERROR("400", "name blank error!"),
     NAME_KATAGANA_BLANK_ERROR("400", "name_katagana blank error!"),
@@ -12,6 +13,7 @@ public enum RtnCode {
     GENDER_BLANK_ERROR("400", "gender blank error!"),
     BIRTHDAY_BLANK_ERROR("400", "birthday blank error!"),
     BIRTHDAY_FORMAT_ERROR("400", "birthday format error!"),
+    AGE_TOO_SAMLL_ERROR("400", "age too small error!"),
     COMPANY_IN_BLANK_ERROR("400", "company_in blank error!"),
     COMPANY_IN_FORMAT_ERROR("400", "company_in format error!"),
     COMPANY_OUT_BLANK_ERROR("400", "company_out blank error!"),
@@ -36,7 +38,11 @@ public enum RtnCode {
     YEAR_MONEY_NUMBER_BLANK_ERROR("400", "year_money_number blank error!"),
     BANK_NAME_BLANK_ERROR("400", "bank_name blank error!"),
     BRANCH_NAME_BLANK_ERROR("400", "branch_name blank error!"),
-    BANK_ACCOUNT_NAME_BLANK_ERROR("400", "bank_account_name blank error!");
+    BANK_ACCOUNT_NAME_BLANK_ERROR("400", "bank_account_name blank error!"),
+    MINUS_NUMBER_ERROR("400", "minus number error!"),
+    COLUMN_SELECT1_NO_FOUND_ERROR("400", "column_select1 no found error!"),
+    COLUMN_SELECT1_BLANK_ERROR("400", "column_select1 blank error!"),
+    STR1_BLANK_ERROR("400", "str1 blank error!");
     
     private String code;
     

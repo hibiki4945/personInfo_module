@@ -20,8 +20,9 @@ public class PersonInfoServiceImpl implements PersonInfoService{
     private PersonInfoDao personInfoDao;
     
     @Override
-    public PersonInfoResponse addInfo(PersonInfo personInfo) {
+    public PersonInfoResponse addInfo(PersonInfo personInfo0) {
         // TODO Auto-generated method stub
+        PersonInfo personInfo = personInfo0;
         String regexp = "[\\d]{4}-[\\d]{2}-[\\d]{2}";
         List<PersonInfo> personInfoList0 = new ArrayList<>(Arrays.asList(personInfo));
         List<PersonInfo> personInfoList = new ArrayList<>(Arrays.asList(personInfo));
@@ -109,9 +110,6 @@ public class PersonInfoServiceImpl implements PersonInfoService{
         if(personInfo.getStayQualification() == null || personInfo.getStayQualification().isBlank()) {
             return new PersonInfoResponse(RtnCode.STAY_QUALIFICATION_BLANK_ERROR.getCode(), RtnCode.STAY_QUALIFICATION_BLANK_ERROR.getMessage(), personInfoList0);
         }
-//        if(!(personInfo.getStayQualification().matches("0") || personInfo.getStayQualification().matches("1"))) {
-//            return new PersonInfoResponse(RtnCode.STAY_QUALIFICATION_FORMAT_ERROR.getCode(), RtnCode.STAY_QUALIFICATION_FORMAT_ERROR.getMessage(), personInfoList0);
-//        }
         if(!(personInfo.getStayQualification().matches("0") || personInfo.getStayQualification().matches("1"))) {
             return new PersonInfoResponse(RtnCode.STAY_QUALIFICATION_FORMAT_ERROR.getCode(), RtnCode.STAY_QUALIFICATION_FORMAT_ERROR.getMessage(), personInfoList0);
         }
@@ -137,8 +135,9 @@ public class PersonInfoServiceImpl implements PersonInfoService{
     }
 
     @Override
-    public PersonInfoResponse changeInfo(PersonInfo personInfo) {
+    public PersonInfoResponse changeInfo(PersonInfo personInfo0) {
         // TODO Auto-generated method stub
+        PersonInfo personInfo = personInfo0;
         String regexp = "[\\d]{4}-[\\d]{2}-[\\d]{2}";
         List<PersonInfo> personInfoList0 = new ArrayList<>(Arrays.asList(personInfo));
         List<PersonInfo> personInfoList = new ArrayList<>(Arrays.asList(personInfo));
@@ -226,9 +225,6 @@ public class PersonInfoServiceImpl implements PersonInfoService{
         if(personInfo.getStayQualification() == null || personInfo.getStayQualification().isBlank()) {
             return new PersonInfoResponse(RtnCode.STAY_QUALIFICATION_BLANK_ERROR.getCode(), RtnCode.STAY_QUALIFICATION_BLANK_ERROR.getMessage(), personInfoList0);
         }
-//        if(!(personInfo.getStayQualification().matches("0") || personInfo.getStayQualification().matches("1"))) {
-//            return new PersonInfoResponse(RtnCode.STAY_QUALIFICATION_FORMAT_ERROR.getCode(), RtnCode.STAY_QUALIFICATION_FORMAT_ERROR.getMessage(), personInfoList0);
-//        }
         if(!(personInfo.getStayQualification().matches("0") || personInfo.getStayQualification().matches("1"))) {
             return new PersonInfoResponse(RtnCode.STAY_QUALIFICATION_FORMAT_ERROR.getCode(), RtnCode.STAY_QUALIFICATION_FORMAT_ERROR.getMessage(), personInfoList0);
         }
@@ -252,7 +248,6 @@ public class PersonInfoServiceImpl implements PersonInfoService{
             return new PersonInfoResponse(RtnCode.DATA_NO_FOUND_ERROR.getCode(), RtnCode.DATA_NO_FOUND_ERROR.getMessage(), personInfoList);
         }
         
-//        System.out.println(personInfo.getMyNumber());   
         int res = personInfoDao.updateInfo(personInfo.getMyNumber(), personInfo.getName(), personInfo.getNameKatagana(), personInfo.getNameRoma(), personInfo.getKokuseki(), personInfo.getGender(), personInfo.getBirthday(), personInfo.getAge(), personInfo.getCompanyIn(), personInfo.getCompanyOut(), personInfo.getPhone(), personInfo.getCellPhone(), personInfo.getCompanyEmail(), personInfo.getOtherEmail(), personInfo.getPostNumber(), personInfo.getAddress(), personInfo.getPassportNumber(), personInfo.getPassportDeadline(), personInfo.getStayCardNumber(), personInfo.getStayCardStart(), personInfo.getStayCardEnd(), personInfo.getStayQualification(), personInfo.getSecurityNumber(), personInfo.getYearMoneyNumber(), personInfo.getBankName(), personInfo.getBranchName(), personInfo.getBankAccountName());
         if(res != 1) {
             return new PersonInfoResponse(RtnCode.DAO_METHOD_ERROR.getCode(), RtnCode.DAO_METHOD_ERROR.getMessage(), personInfoList);
@@ -263,9 +258,9 @@ public class PersonInfoServiceImpl implements PersonInfoService{
     }
 
     @Override
-    public PersonInfoResponse selectInfo(int myNumber) {
+    public PersonInfoResponse selectInfo(int myNumber0) {
         // TODO Auto-generated method stub
-
+            int myNumber = myNumber0;
             List<PersonInfo> personInfoList = new ArrayList<PersonInfo>();
             if(myNumber < 0) {
                 return new PersonInfoResponse(RtnCode.MINUS_NUMBER_ERROR.getCode(), RtnCode.MINUS_NUMBER_ERROR.getMessage(), personInfoList);   
@@ -282,10 +277,10 @@ public class PersonInfoServiceImpl implements PersonInfoService{
     }
 
     @Override
-    public PersonInfoResponse searchInfoContaining(String columnSelect1, String str1) {
+    public PersonInfoResponse searchInfoContaining(String columnSelect10, String str10) {
         // TODO Auto-generated method stub
-//        System.out.println("columnSelect1: "+columnSelect1);
-//        System.out.println("str1: "+str1);
+        String columnSelect1 = columnSelect10;
+        String str1 = str10;
         List<PersonInfo> personInfoList = new ArrayList<PersonInfo>();
         if(columnSelect1 == null || columnSelect1.isBlank()) {
             return new PersonInfoResponse(RtnCode.COLUMN_SELECT1_BLANK_ERROR.getCode(), RtnCode.COLUMN_SELECT1_BLANK_ERROR.getMessage(), personInfoList);    
@@ -311,8 +306,9 @@ public class PersonInfoServiceImpl implements PersonInfoService{
     }
 
     @Override
-    public PersonInfoResponse deleteInfo(int myNumber) {
+    public PersonInfoResponse deleteInfo(int myNumber0) {
         // TODO Auto-generated method stub
+        int myNumber = myNumber0;
         List<PersonInfo> personInfoList = new ArrayList<PersonInfo>();
         if(myNumber < 0) {
             return new PersonInfoResponse(RtnCode.MINUS_NUMBER_ERROR.getCode(), RtnCode.MINUS_NUMBER_ERROR.getMessage(), personInfoList);    

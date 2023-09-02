@@ -286,5 +286,28 @@ public class PersonInfoServiceImpl implements PersonInfoService{
 
     }
 
+    @Override
+    public PersonInfoResponse searchInfoContaining(String columnSelect1, String str1) {
+        // TODO Auto-generated method stub
+//        System.out.println("columnSelect1: "+columnSelect1);
+//        System.out.println("str1: "+str1);
+        List<PersonInfo> personInfoList = new ArrayList<PersonInfo>();
+        if(columnSelect1.matches("姓名")) {
+            personInfoList = personInfoDao.findByNameLike(str1);  
+        }
+        if(columnSelect1.matches("姓名_平假")) {
+            personInfoList = personInfoDao.findByNameKataganaLike(str1);  
+        }
+        if(columnSelect1.matches("姓名_羅馬")) {
+            personInfoList = personInfoDao.findByNameRomaLike(str1);  
+        }
+        else {
+            return new PersonInfoResponse(RtnCode.DATA_ERROR.getCode(), RtnCode.DATA_ERROR.getMessage(), personInfoList);    
+        }
+        
+        return new PersonInfoResponse(RtnCode.SUCCESSFUL.getCode(), RtnCode.SUCCESSFUL.getMessage(), personInfoList);    
+
+    }
+
 
 }

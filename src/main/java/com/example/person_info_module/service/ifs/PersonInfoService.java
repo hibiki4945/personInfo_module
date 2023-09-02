@@ -13,6 +13,8 @@ public interface PersonInfoService {
 
     public PersonInfoResponse searchInfo(int myNumber);
 
+    public PersonInfoResponse searchInfoContaining(String columnSelect1, String str1);
+
     public PersonInfoResponse deleteInfo(int myNumber);
     
 }

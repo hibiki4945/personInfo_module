@@ -17,6 +17,11 @@
 			    	</i>
 		    	</button>
 		    	<button class="rounded-full text-white bg-blue-600 px-2 m-2 hover:scale-105 active:scale-95 hover:cursor-pointer relative">
+			    	<i class="fa-solid fa-magnifying-glass-plus">
+			    		<a class="absolute w-full h-full left-0 top-0" href="/zoom_select"></a>
+			    	</i>
+		    	</button>
+		    	<button class="rounded-full text-white bg-blue-600 px-2 m-2 hover:scale-105 active:scale-95 hover:cursor-pointer relative">
 			    	<i class="fa-solid fa-pen-to-square">
 			    		<a class="absolute w-full h-full left-0 top-0" href="/update_select"></a>
 			    	</i>
@@ -36,21 +41,34 @@
 	    <h1 class="text-3xl font-bold underline">
 	      主頁:
 	    </h1>
-		<form action="#" th:action="@{/home}" th:object="${res}" method="post" class="h-screen">
-			<table>
-				<tr>
-					<td th:text="員工編號" class="border border-2 border-black bg-slate-400"></td>
-					<td th:text="姓名" class="border border-2 border-black"></td>
-					<td th:text="姓名_平假" class="border border-2 border-black"></td>
-					<td th:text="姓名_羅馬" class="border border-2 border-black"></td>
-				</tr>
-				<tr th:each="item : ${res}">
-					<td th:text="${item.myNumber}" class="border border-2 border-black bg-white"></td>
-					<td th:text="${item.name}" class="border border-2 border-black bg-white"></td>
-					<td th:text="${item.nameKatagana}" class="border border-2 border-black bg-white"></td>
-					<td th:text="${item.nameRoma}" class="border border-2 border-black bg-white"></td>
-				</tr>
-			</table>
+		<form action="#" th:action="@{/home}" th:object="${searchInfo}" method="post" class="h-screen mb-24">
+			<label>模糊搜尋_條件1:</label>
+			<select th:field="*{search1ColumnSelect}">
+				<option th:each="c : *{columnList}" th:value="${c}" th:text="${c}" />
+			</select>
+            <input type="text" th:field="*{search1}" /><br/>
+           	<div class="flex flex-col justify-center items-center relative">
+	           	<div class="relative right-2" th:object="${res}" >
+					<table>
+						<tr>
+							<td th:text="員工編號" class="w-24 border border-2 border-black bg-slate-300"></td>
+							<td th:text="姓名" class="w-24 border border-2 border-black bg-slate-300"></td>
+							<td th:text="姓名_平假" class="w-44 border border-2 border-black bg-slate-300"></td>
+							<td th:text="姓名_羅馬" class="w-44 border border-2 border-black bg-slate-300"></td>
+						</tr>
+					</table>
+				</div>
+	           	<div class="h-screen overflow-y-auto" th:object="${res}" >
+					<table>
+						<tr th:each="item : ${res}">
+							<td th:text="${item.myNumber}" class="w-24 border border-2 border-black bg-white"></td>
+							<td th:text="${item.name}" class="w-24 border border-2 border-black bg-white"></td>
+							<td th:text="${item.nameKatagana}" class="w-44 border border-2 border-black bg-white"></td>
+							<td th:text="${item.nameRoma}" class="w-44 border border-2 border-black bg-white"></td>
+						</tr>
+					</table>
+				</div>
+           	</div>
 		</form>
 	    <footer class="py-24 bg-green-200">
 		 	<p>版權所有© 2023 Github-hibiki4945</p>
